@@ -6,10 +6,10 @@ in order to return the name of the company that the given MAC address is associa
 ## Usage:
 
 1. Clone this repository.
-2. Create an account in the MAC address vendor lookup API:  https://macaddress.io/
+2. Create an account on the website of the MAC address vendor lookup API:  https://macaddress.io/
 3. Get your API_KEY that gives you access to query the API.
 4. Copy the file *config_sample.py* and rename it to *config.py*.
-5. In the global variable API_KEY value paste your own key from the API.
+5. In the global variable API_KEY value paste your own key received from the API webpage.
 6. Build the docker from the attached file.
 
     _Example command:_

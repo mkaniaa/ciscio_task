@@ -17,13 +17,14 @@ in order to return the name of the company that the given MAC address is associa
     <code>docker build -t yourdockerusername/cisco_task . </code>
 
 7. Run the container in the interactive mode with the terminal attached. 
+As the last argument type in the MAC Address that you want to check.
 
     _Example command:_
                         
-    <code>docker run -p 8888:5000 -ti  yourdockerusername/cisco_task </code>
+    <code>docker run -p 8888:5000 -ti  yourdockerusername/cisco_task 44:38:39:ff:ef:57</code>
     
-8. Input the MAC Address you need to check.
-9. Enter your answer whether you want to continue or close the tool (Yes/No).
+9. If you enter invalid MAC Address, the program will ask you for the valid one. 
+If you want to cancel this operation just click CTRL + C.
 
 
 ## Technical information:

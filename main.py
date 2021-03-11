@@ -1,5 +1,5 @@
-import distutils.util
 import re
+import sys
 
 import requests
 
@@ -13,16 +13,12 @@ URL = 'https://api.macaddress.io/v1'
 
 
 def run():
-    keep_working = True
-    while keep_working is True:
-        msg = 'Type the MAC Address (example: 44:38:39:ff:ef:57): '
-        mac = valid_mac(input(msg))
-        while mac is None:
-            error_msg = 'Given MAC Address is inappropriate. Try again: '
-            mac = valid_mac(input(error_msg))
+    mac = valid_mac(sys.argv[1])
+    while mac is None:
+        error_msg = 'Given MAC Address is inappropriate. Type in another address: '
+        mac = valid_mac(input(error_msg))
 
-        run_request(mac)
-        keep_working = check_continue()
+    run_request(mac)
 
 
 def valid_mac(input_mac):
@@ -62,23 +58,6 @@ def json_print_company(json_response):
           'Company Name: {company}'.format(mac=requested_mac,
                                            company=company)
     print(msg)
-
-
-def check_continue():
-    msg = 'Do you want to check another address? (Yes/No): '
-    keep_working = valid_boolean(input(msg))
-    while keep_working is None:
-        keep_working = valid_boolean(input(msg))
-
-    return keep_working
-
-
-def valid_boolean(input_arg):
-    try:
-        return bool(distutils.util.strtobool(input_arg))
-    except ValueError:
-        print('Input value must be Yes or No.')
-        return None
 
 
 if __name__ == '__main__':
